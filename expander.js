@@ -36,7 +36,7 @@
                 var quantity = rows.length - options.start;
                 var visible = options.start;
                 
-                rows.slice( options.start ).hide();
+                methods.hide( rows.slice( options.start ) );
                 
                 //Only add the link if quantity of child elements exceeds the options.start
                 if( quantity > 0 ) {
@@ -53,12 +53,14 @@
                 var moreControl = $('.more', obj);
                 var lessControl = $('.less', obj);
 
-                moreControl.click(function() {                              
+                moreControl.click(function() {  
+                    console.log ( rows );
+                    
                     if ( options.step > 0 ){
-                        rows.slice( visible, visible + options.step ).show();
+                        methods.show( rows.slice( visible, visible + options.step ) );
                         visible += options.step;
                     } else {
-                        rows.slice( visible, options.limit ).show();    
+                        methods.show( rows.slice( visible, options.limit ) );
                         visible = rows.length;
                     }
                     
@@ -78,9 +80,9 @@
                 lessControl.click(function() {                    
                     if ( options.step > 0 ){
                         visible -= options.step;
-                        rows.slice( visible ).hide();
+                        methods.hide( rows.slice( visible ) );
                     } else {
-                        rows.slice( options.start ).hide(); 
+                        methods.hide( rows.slice( options.start ) );
                         visible = options.start;  
                     }
                     
