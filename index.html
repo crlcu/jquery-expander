@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="Adrian Crisan" />
+
+	<title>Untitled 1</title>
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="lessMore.js"></script>
+    
+    <script type="text/javascript">
+        $(function(){
+            $('#lessMore').expander({                
+                start: 5,
+        		step: 5,
+        		limit: 10,
+                moreClass: 'pull-left',
+                lessClass: 'pull-right'
+            }); 
+            
+            $('#lessMore2').expander({
+                start: 2,
+        		step: 5,
+                moreClass: 'pull-left',
+                lessClass: 'pull-right'
+            });   
+        });
+    </script>
+    
+    <style type="text/css">
+    .hide {
+        display: none;
+    }
+    .controls { width: 200px;}
+    </style>
+</head>
+<body>
+
+    <div id="lessMore" style="float: left; border: 1px solid #ccc; margin-right: 50px; width: 50px;">
+        <label class="checkbox"><input type="checkbox" name="name"/> 1</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 2</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 3</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 4</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 5</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 6</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 7</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 8</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 9</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 10</label>
+        <label class="checkbox"><input type="checkbox" name="name"/> 11</label>
+    </div>
+    
+    <div id="lessMore2" style="float: left; border: 1px solid #ccc;">
+        <div> item 1 </div>
+        <div> item 2 </div>
+        <div> item 3 </div>
+        <div> item 4 </div>
+        <div> item 5 </div>
+        <div> item 6 </div>
+        <div> item 7 </div>
+        <div> item 8 </div>
+        <div> item 9 </div>
+        <div> item 10 </div>
+    </div>
+
+</body>
+</html>
