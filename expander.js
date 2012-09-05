@@ -1,4 +1,4 @@
-(function($){
+;(function($){
     $.fn.extend({
         expander: function(options) {  
             var defaults = {
@@ -29,9 +29,7 @@
             
             return this.each(function() {
                 var obj = $(this);
-
-                //define controls
-                var controls;
+                var controls = '';
                 
                 //Calculate number of rows and hide them
                 var rows = obj.children();
@@ -49,35 +47,42 @@
                 }
 
                 //Check if "append" is set to true, otherwise prepend the "control"
-                if(options.append) {
-                    obj.append(controls);
-                } else {
-                    obj.prepend(controls);
-                }
+                if(options.append) obj.append( controls ); else obj.prepend( controls );
 
-                //Create a reference to the control
-
+                //Create a reference to the controls
                 var moreControl = $('.more', obj);
                 var lessControl = $('.less', obj);
 
                 moreControl.click(function() {                              
-                    rows.slice( visible, visible + options.step ).show();
-                    visible += options.step;
+                    if ( options.step > 0 ){
+                        rows.slice( visible, visible + options.step ).show();
+                        visible += options.step;
+                    } else {
+                        rows.slice( visible, options.limit ).show();    
+                        visible = rows.length;
+                    }
                     
                     if ( options.limit != -1 && visible >= options.limit ){
                         methods.hide( moreControl );  
                         methods.show( lessControl ); 
                     } else if ( options.start < visible && visible < rows.length )
                         methods.show( lessControl );
-                    else if ( visible >= rows.length )
+                    else if ( visible >= rows.length ) {
                         methods.hide( moreControl );
+                        methods.show( lessControl );
+                    }
                         
                     return false;	
                 });
                 
                 lessControl.click(function() {                    
-                    visible -= options.step;
-                    rows.slice( visible ).hide();
+                    if ( options.step > 0 ){
+                        visible -= options.step;
+                        rows.slice( visible ).hide();
+                    } else {
+                        rows.slice( options.start ).hide(); 
+                        visible = options.start;  
+                    }
                     
                     if ( options.start < visible && visible < rows.length )
                         methods.show( moreControl );
