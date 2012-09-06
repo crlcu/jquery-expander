@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 	<meta name="author" content="Adrian Crisan" />
 
-	<title>Untitled 1</title>
+	<title>jQuery Expander by Adrian Crisan</title>
     
     <link href="expander.css" rel="stylesheet"/>
     
@@ -16,32 +16,36 @@
         $(function(){
             $('#stepByStep').expander({
                 start: 5,           //show 5 elements on start
-        		step: 5,          //at more/less show more/less 5 childrens
+        		step: 5,          //at click more/less, show more/less 5 childrens
                 moreClass: 'pull-left',
-                lessClass: 'pull-right'
+                lessClass: 'pull-right',
+                hideClass: 'hide'
             });
             
             $('#stepByStepWithLimit').expander({
                 start: 2,               //show 2 elements on start
-        		step: 2,              //at more/less show more/less 2 childrens
+        		step: 2,              //at click more/less, show more/less 2 childrens
                 limit: 10,          //maximum 10 childrens
                 moreClass: 'pull-left',
-                lessClass: 'pull-right'
+                lessClass: 'pull-right',
+                hideClass: 'hide'
             });
             
             $('#lessMore').expander({
                 start: 2,           //show 2 elements on start
         		step: 0,         //step < 0 means you do not have a step by step expander
                 moreClass: 'pull-left',
-                lessClass: 'pull-right'
+                lessClass: 'pull-right',
+                hideClass: 'hide'
             });   
             
             $('#lessMoreWithLimit').expander({
                 start: 2,           //show 2 elements on start
-        		step: 0,         //step < 0 means you do not have a step by step expander,
+        		step: 0,          //step < 0 means you do not have a step by step expander,
                 limit: 8,       //maximum 8 childrens
                 moreClass: 'pull-left',
-                lessClass: 'pull-right'
+                lessClass: 'pull-right',
+                hideClass: 'hide'
             }); 
         });
     </script>
