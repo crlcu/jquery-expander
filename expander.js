@@ -65,8 +65,8 @@
                 if( quantity > 0 ) {
                     //Set controls
                     controls = '<div class="controls">' +
-                                '<a href="#" class="more '+ options.moreClass +'">'+ options.moreText +'<\/a>' + 
-                                '<a href="#" class="less '+ options.lessClass + ' ' + options.hideClass + '">'+ options.lessText +'<\/a>' + 
+                                '<a href="#more" class="more '+ options.moreClass +'">'+ options.moreText +'<\/a>' + 
+                                '<a href="#less" class="less '+ options.lessClass + ' ' + options.hideClass + '">'+ options.lessText +'<\/a>' + 
                                 '</div>';
                 }
 
