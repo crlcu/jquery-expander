@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="Adrian Crisan" />
+
+	<title>Untitled 1</title>
+    
+    <link href="expander.css" rel="stylesheet"/>
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="expander.js"></script>
+    
+    <script type="text/javascript">
+        $(function(){
+            $('#stepByStep').expander({
+                start: 5,           //show 5 elements on start
+        		step: 5,          //at more/less show more/less 5 childrens
+                moreClass: 'pull-left',
+                lessClass: 'pull-right'
+            });
+            
+            $('#stepByStepWithLimit').expander({
+                start: 2,               //show 2 elements on start
+        		step: 2,              //at more/less show more/less 2 childrens
+                limit: 10,          //maximum 10 childrens
+                moreClass: 'pull-left',
+                lessClass: 'pull-right'
+            });
+            
+            $('#lessMore').expander({
+                start: 2,           //show 2 elements on start
+        		step: 0,         //step < 0 means you do not have a step by step expander
+                moreClass: 'pull-left',
+                lessClass: 'pull-right'
+            });   
+            
+            $('#lessMoreWithLimit').expander({
+                start: 2,           //show 2 elements on start
+        		step: 0,         //step < 0 means you do not have a step by step expander,
+                limit: 8,       //maximum 8 childrens
+                moreClass: 'pull-left',
+                lessClass: 'pull-right'
+            }); 
+        });
+    </script>
+</head>
+<body>
+    
+    <div id="demo1">
+        <h3>Step by step expander</h3>
+        
+        <div id="stepByStep">
+            <label class="checkbox"><input type="checkbox" name="name"/> 1</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 2</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 3</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 4</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 5</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 6</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 7</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 8</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 9</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 10</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 11</label>
+        </div>                
+    </div>
+    
+    <div id="demo2">
+        <h3>Step by step expander with limit</h3>
+        
+        <div id="stepByStepWithLimit">
+            <label class="checkbox"><input type="checkbox" name="name"/> 1</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 2</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 3</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 4</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 5</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 6</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 7</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 8</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 9</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 10</label>
+            <label class="checkbox"><input type="checkbox" name="name"/> 11</label>
+        </div>                
+    </div>
+    
+    <div id="demo3">
+        <h3>Less/More expander</h3>
+        
+        <div id="lessMore">
+            <div> item 1 </div>
+            <div> item 2 </div>
+            <div> item 3 </div>
+            <div> item 4 </div>
+            <div> item 5 </div>
+            <div> item 6 </div>
+            <div> item 7 </div>
+            <div> item 8 </div>
+            <div> item 9 </div>
+            <div> item 10 </div>
+        </div>
+    </div>
+    
+    <div id="demo4">
+        <h3>Less/More expander with limit</h3>
+        
+        <div id="lessMoreWithLimit">
+            <div> item 1 </div>
+            <div> item 2 </div>
+            <div> item 3 </div>
+            <div> item 4 </div>
+            <div> item 5 </div>
+            <div> item 6 </div>
+            <div> item 7 </div>
+            <div> item 8 </div>
+            <div> item 9 </div>
+            <div> item 10 </div>
+        </div>
+    </div>
+
+</body>
+</html>

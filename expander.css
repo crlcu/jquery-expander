@@ -1,0 +1,35 @@
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+
+h3 {
+    margin: 10px 0;
+    padding: 0;
+    
+    text-align: center;
+}
+
+#demo1, #demo2, #demo3, #demo4 {
+    border: 1px solid #ccc; 
+    float: left; 
+    margin-right: 50px; 
+    padding: 10px;
+}
+
+#demo1, #demo2 {
+    width: 190px;  
+}
+
+/* Expander */
+.expander {}
+
+.expander .controls a {
+    text-decoration: none;
+}
+
+.hide {
+    display: none;
+}

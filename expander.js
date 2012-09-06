@@ -4,6 +4,10 @@
             var defaults = {
                 start: 3,
                 step: 5,
+                
+                /*
+                    -1 : no limit
+                */
                 limit: -1,
                 
                 moreText: 'Show more',
@@ -29,6 +33,8 @@
             
             return this.each(function() {
                 var obj = $(this);
+                obj.addClass('expander');
+                
                 var controls = '';
                 
                 //Calculate number of rows and hide them
@@ -53,15 +59,23 @@
                 var moreControl = $('.more', obj);
                 var lessControl = $('.less', obj);
 
-                moreControl.click(function() {  
-                    console.log ( rows );
+                moreControl.click(function() {
                     
+                    // step by step
                     if ( options.step > 0 ){
                         methods.show( rows.slice( visible, visible + options.step ) );
                         visible += options.step;
+                    // less / more
                     } else {
-                        methods.show( rows.slice( visible, options.limit ) );
-                        visible = rows.length;
+                        // with limit
+                        if ( options.limit > 0 ){
+                            methods.show( rows.slice( visible, options.limit ) );
+                            visible = options.limit;  
+                        // no limit
+                        } else {
+                            methods.show( rows.slice( visible, rows.length ) );
+                            visible = rows.length;   
+                        }   
                     }
                     
                     if ( options.limit != -1 && visible >= options.limit ){
@@ -77,10 +91,12 @@
                     return false;	
                 });
                 
-                lessControl.click(function() {                    
+                lessControl.click(function() {
+                    // step by step
                     if ( options.step > 0 ){
                         visible -= options.step;
                         methods.hide( rows.slice( visible ) );
+                    // less more
                     } else {
                         methods.hide( rows.slice( options.start ) );
                         visible = options.start;  
