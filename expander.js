@@ -114,6 +114,7 @@
                         }   
                     }
                     
+                    //Controls manipulation
                     if ( options.limit != -1 && visible >= options.limit ){         //No limit and visible elements are more then options.limit
                         //Hide more control
                         methods.hide( moreControl );  
@@ -160,6 +161,7 @@
                         visible = options.start;  
                     }
                     
+                    //Controls manipulation
                     if ( options.start < visible && visible < childrens.length )     //Visible elements between options.start and all children's
                         //Show more control
                         methods.show( moreControl );
