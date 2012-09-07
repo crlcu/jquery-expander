@@ -19,7 +19,21 @@
         		step: 5,          //at click more/less, show more/less 5 childrens
                 moreClass: 'pull-left',
                 lessClass: 'pull-right',
-                hideClass: 'hide'
+                hideClass: 'hide',
+                
+                beforeExpand: function(){
+                    console.log('beforeExpand');
+                },
+                afterExpand: function(){
+                    console.log('afterExpand');
+                },
+                
+                beforeCollapse: function(){
+                    console.log('beforeCollapse');
+                },
+                afterCollapse: function(){
+                    console.log('afterCollapse');
+                }
             });
             
             $('#stepByStepWithLimit').expander({

@@ -25,7 +25,13 @@
                 lessClass: '',
                 hideClass: '',
                 
-                append: true
+                append: true,
+                
+                beforeExpand: false,
+                afterExpand: false,
+                
+                beforeCollapse: false,
+                afterCollapse: false
             };
 
             var options = $.extend(defaults, options);
@@ -50,16 +56,16 @@
                 var controls = '';
                 
                 //Store children's elements
-                var rows = obj.children();
+                var childrens = obj.children();
                 
                 //Compute elements that must remain hidden
-                var quantity = rows.length - options.start;
+                var quantity = childrens.length - options.start;
                 
                 //Initialize visible elements with start elements
                 var visible = options.start;
                 
                 //Hide children's begin at options.start
-                methods.hide( rows.slice( options.start ) );
+                methods.hide( childrens.slice( options.start ) );
                 
                 //Only add the controls if quantity of child elements exceeds the options.start
                 if( quantity > 0 ) {
@@ -81,25 +87,30 @@
                 
                 //Bind click action on more control
                 moreControl.click(function() {
+                    //Call beforeExpand if defined
+                    if ( options.beforeExpand ){
+                        eval( options.beforeExpand() );    
+                    }
+                    
                     if ( options.step > 0 ){        //Step by step
                         //Show children's begin at 'visible' and end at 'visible' + options.step
-                        methods.show( rows.slice( visible, visible + options.step ) );
+                        methods.show( childrens.slice( visible, visible + options.step ) );
                         
                         //Increment visible children's
                         visible += options.step;
                     } else {                        // less / more
                         if ( options.limit > 0 ){   //With limit
                             //Show children's begin at 'visible' and end at options.limit
-                            methods.show( rows.slice( visible, options.limit ) );
+                            methods.show( childrens.slice( visible, options.limit ) );
                             
                             //Set visible children's equal to options.limit
                             visible = options.limit;  
                         } else {                    //No limit
                             //Show children's begin at 'visible' and end at the end of children's
-                            methods.show( rows.slice( visible, rows.length ) );
+                            methods.show( childrens.slice( visible, childrens.length ) );
                             
                             //Set visible children's equal to all childrens
-                            visible = rows.length;   
+                            visible = childrens.length;   
                         }   
                     }
                     
@@ -109,15 +120,20 @@
                         
                         //Show less control
                         methods.show( lessControl ); 
-                    } else if ( options.start < visible && visible < rows.length )  //Visible elements between options.start and all children's
+                    } else if ( options.start < visible && visible < childrens.length )  //Visible elements between options.start and all children's
                         //Show less control
                         methods.show( lessControl );
-                    else if ( visible >= rows.length ) {                            //Visible elements are more or equal to all children's
+                    else if ( visible >= childrens.length ) {                            //Visible elements are more or equal to all children's
                         //Hide more control
                         methods.hide( moreControl );
                         
                         //Show less control
                         methods.show( lessControl );
+                    }
+                    
+                    //Call afterExpand if defined
+                    if ( options.afterExpand ){
+                        eval( options.afterExpand() );    
                     }
                         
                     return false;	
@@ -125,21 +141,26 @@
                 
                 //Bind click action on less control
                 lessControl.click(function() {
+                    //Call beforeCollapse if defined
+                    if ( options.beforeCollapse ){
+                        eval( options.beforeCollapse() ); 
+                    }
+                    
                     if ( options.step > 0 ){                        //Step by step
                         //Decrement visible elements
                         visible -= options.step;
                         
                         //Hide elements begin at 'visible'
-                        methods.hide( rows.slice( visible ) );
+                        methods.hide( childrens.slice( visible ) );
                     } else {                                       // less / more
                         //Hide elements begin at options.start
-                        methods.hide( rows.slice( options.start ) );
+                        methods.hide( childrens.slice( options.start ) );
                         
                         //Set visible elements equal to start elements
                         visible = options.start;  
                     }
                     
-                    if ( options.start < visible && visible < rows.length )     //Visible elements between options.start and all children's
+                    if ( options.start < visible && visible < childrens.length )     //Visible elements between options.start and all children's
                         //Show more control
                         methods.show( moreControl );
                     else if ( visible == options.start ) {
@@ -148,6 +169,11 @@
                         
                         //Show more control
                         methods.show( moreControl );
+                    }
+                    
+                    //Call afterCollapse if defined
+                    if ( options.afterCollapse ){
+                        eval( options.afterCollapse() );    
                     }
                     
                     return false;	
