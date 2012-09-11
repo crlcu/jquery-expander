@@ -41,6 +41,7 @@ Step by step
 ```
 
 *   with limit
+
 ```javascript
     $('#stepByStepWithLimit').expander({
         start: 2,               //show 2 elements on start
@@ -67,6 +68,7 @@ Less/More
 ```
 
 *   with limit
+
 ```javascript
     $('#lessMoreWithLimit').expander({
         start: 2,           //show 2 elements on start
