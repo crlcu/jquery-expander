@@ -2,6 +2,8 @@ jQuery Expander
 ----------------
 The `Expander Plugin` hides (collapses) html child elements in a container and add "more/less" link.
 
+Does not work for text.
+
 Features
 ----------------
 *   works for html child elements (any kind of html child elements)
@@ -79,3 +81,9 @@ Less/More
         hideClass: 'hide'
     });
 ```
+
+Authors
+----------------
+<b>Adrian Crisan</b>
+*   https://www.facebook.com/crlcu
+*   crycul2oo4@yahoo.com
