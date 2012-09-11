@@ -1,15 +1,14 @@
 jQuery Expander
 ----------------
-The Expander Plugin hides (collapses) child elements in a container and add "more/less" link.
+The `Expander Plugin` hides (collapses) child elements in a container and add "more/less" link.
 
 Features
 ----------------
 *   works for child elements (any kind of child elements)
-*   configurable
-**  hide class
-**  more text/class
-**  less text/class
-
+*   configurable `start` elements, `step`, `limit` 
+*   configurable `hide class`, `more text/class`, `less text/class`
+*   callbacks for : `beforeExpand`, `afterExpand`, `beforeCollapse`, `afterCollapse`
+  
 Can be used as :
 ----------------
 *   <a href="#sbs">step by step expander</a>
