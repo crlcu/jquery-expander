@@ -38,6 +38,7 @@ Can be used as :
             console.log('afterCollapse');
         }
     });
+```
     
 <span id="lm">Less/More</span>
 ----------------
@@ -49,3 +50,4 @@ Can be used as :
         lessClass: 'pull-right',
         hideClass: 'hide'
     });  
+```
