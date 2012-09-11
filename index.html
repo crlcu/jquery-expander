@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jquery-expander by crlcu</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jquery-expander</h1>
+        <p>jquery step by step and less/more expander</p>
+
+        <p class="view"><a href="https://github.com/crlcu/jquery-expander">View the Project on GitHub <small>crlcu/jquery-expander</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/crlcu/jquery-expander/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/crlcu/jquery-expander/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/crlcu/jquery-expander">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>jQuery Expander</h2>
+
+<p>The <code>Expander Plugin</code> hides (collapses) html child elements in a container and add "more/less" link.</p>
+
+<p>Does not work for text.</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>  works for html child elements (any kind of html child elements)</li>
+<li>  configurable <code>start</code> elements, <code>step</code>, <code>limit</code> </li>
+<li>  configurable <code>hide class</code>, <code>more text/class</code>, <code>less text/class</code>
+</li>
+<li>  callbacks for : <code>beforeExpand</code>, <code>afterExpand</code>, <code>beforeCollapse</code>, <code>afterCollapse</code>
+</li>
+</ul><h2>Can be used as :</h2>
+
+<ul>
+<li>  <a href="#step-by-step">step by step expander</a>
+</li>
+<li>  <a href="#lessmore">less/more expander</a>
+</li>
+</ul><h2>Step by step</h2>
+
+<div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">'#stepByStep'</span><span class="p">).</span><span class="nx">expander</span><span class="p">({</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>           <span class="c1">//show 5 elements on start</span>
+        <span class="nx">step</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>          <span class="c1">//at click more/less, show more/less 5 childrens</span>
+        <span class="nx">moreClass</span><span class="o">:</span> <span class="s1">'pull-left'</span><span class="p">,</span>
+        <span class="nx">lessClass</span><span class="o">:</span> <span class="s1">'pull-right'</span><span class="p">,</span>
+        <span class="nx">hideClass</span><span class="o">:</span> <span class="s1">'hide'</span><span class="p">,</span>
+
+        <span class="nx">beforeExpand</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'beforeExpand'</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">afterExpand</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'afterExpand'</span><span class="p">);</span>
+        <span class="p">},</span>
+
+        <span class="nx">beforeCollapse</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'beforeCollapse'</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">afterCollapse</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'afterCollapse'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+</pre></div>
+
+<ul>
+<li>  with limit</li>
+</ul><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">'#stepByStepWithLimit'</span><span class="p">).</span><span class="nx">expander</span><span class="p">({</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>               <span class="c1">//show 2 elements on start</span>
+        <span class="nx">step</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>              <span class="c1">//at click more/less, show more/less 2 childrens</span>
+        <span class="nx">limit</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>          <span class="c1">//maximum 10 childrens</span>
+        <span class="nx">moreClass</span><span class="o">:</span> <span class="s1">'pull-left'</span><span class="p">,</span>
+        <span class="nx">moreText</span><span class="o">:</span> <span class="s1">'More'</span><span class="p">,</span>
+        <span class="nx">lessClass</span><span class="o">:</span> <span class="s1">'pull-right'</span><span class="p">,</span>
+        <span class="nx">lessText</span><span class="o">:</span> <span class="s1">'Less'</span><span class="p">,</span> 
+        <span class="nx">hideClass</span><span class="o">:</span> <span class="s1">'hide'</span>
+    <span class="p">});</span>
+</pre></div>
+
+<h2>Less/More</h2>
+
+<div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">'#lessMore'</span><span class="p">).</span><span class="nx">expander</span><span class="p">({</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>           <span class="c1">//show 2 elements on start</span>
+        <span class="nx">step</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>         <span class="c1">//step &lt; 0 means you do not have a step by step expander</span>
+        <span class="nx">moreClass</span><span class="o">:</span> <span class="s1">'pull-left'</span><span class="p">,</span>
+        <span class="nx">lessClass</span><span class="o">:</span> <span class="s1">'pull-right'</span><span class="p">,</span>
+        <span class="nx">hideClass</span><span class="o">:</span> <span class="s1">'hide'</span>
+    <span class="p">});</span>  
+</pre></div>
+
+<ul>
+<li>  with limit</li>
+</ul><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">'#lessMoreWithLimit'</span><span class="p">).</span><span class="nx">expander</span><span class="p">({</span>
+        <span class="nx">start</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>           <span class="c1">//show 2 elements on start</span>
+        <span class="nx">step</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>          <span class="c1">//step &lt; 0 means you do not have a step by step expander,</span>
+        <span class="nx">limit</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>       <span class="c1">//maximum 8 childrens</span>
+        <span class="nx">moreClass</span><span class="o">:</span> <span class="s1">'pull-left'</span><span class="p">,</span>
+        <span class="nx">lessClass</span><span class="o">:</span> <span class="s1">'pull-right'</span><span class="p">,</span>
+        <span class="nx">hideClass</span><span class="o">:</span> <span class="s1">'hide'</span>
+    <span class="p">});</span>
+</pre></div>
+
+<h2>Authors</h2>
+
+<p><b>Adrian Crisan</b></p>
+
+<ul>
+<li>  <a href="https://www.facebook.com/crlcu">https://www.facebook.com/crlcu</a>
+</li>
+<li>  <a href="mailto:crycul2oo4@yahoo.com">crycul2oo4@yahoo.com</a>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/crlcu">crlcu</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
