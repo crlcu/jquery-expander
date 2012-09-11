@@ -14,7 +14,7 @@ Can be used as :
 *   <a href="#sbs">step by step expander</a>
 *   <a href="#lm">less/more expander</a>
 
-<span id="sbs">Step by step</span>
+[sbs]Step by step
 ----------------
 ```javascript
     $('#stepByStep').expander({
@@ -40,7 +40,7 @@ Can be used as :
     });
 ```
     
-<span id="lm">Less/More</span>
+[lm]Less/More
 ----------------
 ```javascript
     $('#lessMore').expander({
