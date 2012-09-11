@@ -11,10 +11,10 @@ Features
   
 Can be used as :
 ----------------
-*   <a href="#sbs">step by step expander</a>
-*   <a href="#lm">less/more expander</a>
+*   <a href="#step-by-step">step by step expander</a>
+*   <a href="#lessmore">less/more expander</a>
 
-[sbs]Step by step
+Step by step
 ----------------
 ```javascript
     $('#stepByStep').expander({
@@ -40,7 +40,7 @@ Can be used as :
     });
 ```
     
-[lm]Less/More
+Less/More
 ----------------
 ```javascript
     $('#lessMore').expander({
