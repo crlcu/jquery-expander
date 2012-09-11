@@ -39,7 +39,21 @@ Step by step
         }
     });
 ```
-    
+
+*   with limit
+```javascript
+    $('#stepByStepWithLimit').expander({
+        start: 2,               //show 2 elements on start
+    	step: 2,              //at click more/less, show more/less 2 childrens
+        limit: 10,          //maximum 10 childrens
+        moreClass: 'pull-left',
+        moreText: 'More',
+        lessClass: 'pull-right',
+        lessText: 'Less', 
+        hideClass: 'hide'
+    });
+```
+  
 Less/More
 ----------------
 ```javascript
@@ -50,4 +64,16 @@ Less/More
         lessClass: 'pull-right',
         hideClass: 'hide'
     });  
+```
+
+*   with limit
+```javascript
+    $('#lessMoreWithLimit').expander({
+        start: 2,           //show 2 elements on start
+    	step: 0,          //step < 0 means you do not have a step by step expander,
+        limit: 8,       //maximum 8 childrens
+        moreClass: 'pull-left',
+        lessClass: 'pull-right',
+        hideClass: 'hide'
+    });
 ```
