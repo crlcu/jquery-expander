@@ -23,7 +23,7 @@
                 lessText: 'Show less',
                 moreClass: '',
                 lessClass: '',
-                hideClass: '',
+                hideClass: 'hide',
                 
                 append: true,
                 
@@ -89,7 +89,7 @@
                 moreControl.click(function() {
                     //Call beforeExpand if defined
                     if ( options.beforeExpand ){
-                        eval( options.beforeExpand() );    
+                        eval( options.beforeExpand( obj ) );    
                     }
                     
                     if ( options.step > 0 ){        //Step by step
@@ -134,7 +134,7 @@
                     
                     //Call afterExpand if defined
                     if ( options.afterExpand ){
-                        eval( options.afterExpand() );    
+                        eval( options.afterExpand( obj ) );    
                     }
                         
                     return false;	
@@ -144,7 +144,7 @@
                 lessControl.click(function() {
                     //Call beforeCollapse if defined
                     if ( options.beforeCollapse ){
-                        eval( options.beforeCollapse() ); 
+                        eval( options.beforeCollapse( obj ) ); 
                     }
                     
                     if ( options.step > 0 ){                        //Step by step
@@ -175,7 +175,7 @@
                     
                     //Call afterCollapse if defined
                     if ( options.afterCollapse ){
-                        eval( options.afterCollapse() );    
+                        eval( options.afterCollapse( obj ) );    
                     }
                     
                     return false;	
