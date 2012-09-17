@@ -38,11 +38,11 @@
             
             var methods = {                
                 hide: function( element ){
-                    element.addClass( options.hideClass );
+                    element.addClass( options.hideClass ).hide();
                 },
                 
                 show: function( element ){
-                    element.removeClass( options.hideClass );    
+                    element.removeClass( options.hideClass ).show();    
                 }
             };
             
