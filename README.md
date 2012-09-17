@@ -26,17 +26,17 @@ Step by step
         lessClass: 'pull-right',
         hideClass: 'hide',
         
-        beforeExpand: function(){
+        beforeExpand: function( _this ){
             console.log('beforeExpand');
         },
-        afterExpand: function(){
+        afterExpand: function( _this ){
             console.log('afterExpand');
         },
         
-        beforeCollapse: function(){
+        beforeCollapse: function( _this ){
             console.log('beforeCollapse');
         },
-        afterCollapse: function(){
+        afterCollapse: function( _this ){
             console.log('afterCollapse');
         }
     });
