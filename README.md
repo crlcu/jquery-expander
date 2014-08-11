@@ -86,4 +86,4 @@ Authors
 ----------------
 <b>Adrian Crisan</b>
 *   https://www.facebook.com/crlcu
-*   crycul2oo4@yahoo.com
+*   adrian.crisan88@gmail.com
